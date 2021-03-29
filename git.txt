@@ -1,0 +1,274 @@
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ touch test.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ ls
+test.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ open
+Couldn't get a file descriptor referring to the console
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ open test.txt 
+Couldn't get a file descriptor referring to the console
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-open
+xdg-open - opens a file or URL in the user's preferred application
+
+Synopsis
+
+xdg-open { file | URL }
+
+xdg-open { --help | --manual | --version }
+
+Use 'man xdg-open' or 'xdg-open --manual' for additional info.
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-open text.txt
+gvfs-open: text.txt: error opening location: Error when getting information for file '/home/lt-183/Desktop/KTPrototype/Git-test/text.txt': No such file or directory
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-open test.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ clear
+
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git init
+Initialized empty Git repository in /home/lt-183/Desktop/KTPrototype/Git-test/.git/
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ ls -a
+.  ..  .git  test.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	test.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git add test.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   test.txt
+
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git commit -m "my 1st commit"
+[master (root-commit) 7e13feb] my 1st commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git log
+commit 7e13feb01bcccbf9b011e0d1aa95323d707de4f1
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 15:05:56 2021 +0530
+
+    my 1st commit
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ touch test2.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ touch test3.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-open test2.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-open test3.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	test2.txt
+	test3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git add .
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   test2.txt
+	new file:   test3.txt
+
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git commit -m "2nd commit"
+[master 44ae64c] 2nd commit
+ 2 files changed, 2 insertions(+)
+ create mode 100644 test2.txt
+ create mode 100644 test3.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git log
+commit 44ae64ce0b73f7e07eb516ceef32b25a6e213a91
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 17:14:11 2021 +0530
+
+    2nd commit
+
+commit 7e13feb01bcccbf9b011e0d1aa95323d707de4f1
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 15:05:56 2021 +0530
+
+    my 1st commit
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   test3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git diff test3.txt
+diff --git a/test3.txt b/test3.txt
+index 528dfcf..2187973 100644
+--- a/test3.txt
++++ b/test3.txt
+@@ -1 +1,2 @@
+ Whats up Danger!
++LOLOLOL
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git checkout test3.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git diff test3.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git config --global user.name "Prathmesh"
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git config --global user.email "prathmesh.dubey@tudip.com"
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git user.name
+git: 'user.name' is not a git command. See 'git --help'.
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git log
+commit 44ae64ce0b73f7e07eb516ceef32b25a6e213a91
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 17:14:11 2021 +0530
+
+    2nd commit
+
+commit 7e13feb01bcccbf9b011e0d1aa95323d707de4f1
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 15:05:56 2021 +0530
+
+    my 1st commit
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git config user.name
+Prathmesh
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   test3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git commit -m "my 3rd commit"
+On branch master
+Changes not staged for commit:
+	modified:   test3.txt
+
+no changes added to commit
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git add .
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git commit -m "my 3rd commit"
+[master 20b9d62] my 3rd commit
+ 1 file changed, 2 insertions(+)
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+nothing to commit, working directory clean
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git log
+commit 20b9d6271e20c9262f26e5fb731c2b308ace0b9c
+Author: Prathmesh <prathmesh.dubey@tudip.com>
+Date:   Fri Mar 26 17:32:04 2021 +0530
+
+    my 3rd commit
+
+commit 44ae64ce0b73f7e07eb516ceef32b25a6e213a91
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 17:14:11 2021 +0530
+
+    2nd commit
+
+commit 7e13feb01bcccbf9b011e0d1aa95323d707de4f1
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 15:05:56 2021 +0530
+
+    my 1st commit
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git remote add origin https://github.com/Prathmesh22/test.git
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git push -u origin master
+Username for 'https://github.com': Prathmesh22
+Password for 'https://Prathmesh22@github.com': 
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (10/10), 771 bytes | 0 bytes/s, done.
+Total 10 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/Prathmesh22/test.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git rm --cached -4 .
+error: unknown switch `4'
+usage: git rm [<options>] [--] <file>...
+
+    -n, --dry-run         dry run
+    -q, --quiet           do not list removed files
+    --cached              only remove from the index
+    -f, --force           override the up-to-date check
+    -r                    allow recursive removal
+    --ignore-unmatch      exit with a zero status even if nothing matched
+
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git rm --cached -r .
+rm 'test.txt'
+rm 'test2.txt'
+rm 'test3.txt'
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	deleted:    test.txt
+	deleted:    test2.txt
+	deleted:    test3.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	test.txt
+	test2.txt
+	test3.txt
+
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ touch secret.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-opensecret.txt
+bash: xdg-opensecret.txt: command not found
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-open secret.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ touch .gitignore
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ ls
+secret.txt  test2.txt  test3.txt  test.txt
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ xdg-open .gitignore
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git add .
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   .gitignore
+
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git commit -m "no secret"
+[master 3e2d3be] no secret
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git log
+commit 3e2d3be55c3b8cc68db11c504e8d19458e87cca8
+Author: Prathmesh <prathmesh.dubey@tudip.com>
+Date:   Fri Mar 26 20:45:45 2021 +0530
+
+    no secret
+
+commit 20b9d6271e20c9262f26e5fb731c2b308ace0b9c
+Author: Prathmesh <prathmesh.dubey@tudip.com>
+Date:   Fri Mar 26 17:32:04 2021 +0530
+
+    my 3rd commit
+
+commit 44ae64ce0b73f7e07eb516ceef32b25a6e213a91
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 17:14:11 2021 +0530
+
+    2nd commit
+
+commit 7e13feb01bcccbf9b011e0d1aa95323d707de4f1
+Author: Vinay Kumar Sahu <vinaykumar.sahu@tv2consulting.com>
+Date:   Fri Mar 26 15:05:56 2021 +0530
+
+    my 1st commit
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git branch
+* master
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git branch nonsense
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git branch
+* master
+  nonsense
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ git checkout nonsense
+Switched to branch 'nonsense'
+lt-183@lt183-Latitude-3480:~/Desktop/KTPrototype/Git-test$ 
+
